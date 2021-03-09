@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController as SC;
+use App\Http\Controllers\RayonController as RC;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,10 @@ Route::post('/siswa/store', [SC::class, 'store']);
 Route::get('/siswa/edit/{id}', [SC::class, 'edit']);
 Route::patch('siswa/update/{id}', [SC::class, 'update']);
 Route::delete('/siswa/delete/{id}', [SC::class, 'delete']);
+
+Route::get('/rayon', [RC::class, 'index']); //url /rayon dengan method get -> masuk ke rayon controller dengan function index
+Route::get('/rayon/create', [RC::class, 'create'])->name('rayon.create');
+Route::post('/rayon/store', [RC::class, 'store']);
+Route::get('/rayon/edit/{id}', [RC::class, 'edit']);
+Route::patch('rayon/update/{id}', [RC::class, 'update']);
+Route::delete('/rayon/delete/{id}', [RC::class, 'delete']);
