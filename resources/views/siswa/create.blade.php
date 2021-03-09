@@ -17,11 +17,15 @@
         <label>no_hp</label>
         <input type="text" name="no_hp" required><br>
         <label>id_rayon</label>
-        <input type="text" name="id_rayon" required><br>
+        <select name="id_rayon">
+            @foreach ($rayons as $a)
+                <option value="{{$a->id}}">{{$a->nama_rayon}}</option>
+            @endforeach
+        </select><br>
         <label>rombel</label>
         <input type="text" name="rombel" required><br>
         <br>
-        <button type="submit"> CREATE</button>
+        <button type="submit">CREATE</button>
     </form>
 </body>
 </html>

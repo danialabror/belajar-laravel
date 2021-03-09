@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Siswa;  //untuk memanggil model Siswa = table siswas
+use App\Models\Siswa;
+use App\Models\SiswaView;  //untuk memanggil model Siswa = table siswas
+use App\Models\Rayon;
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $siswas = Siswa::all(); //ambil semua data dari model Siswa/table 'siswas'
+        $siswas = SiswaView::all(); //ambil semua data dari model Siswa/table 'siswas'
         // dd($siswas); => untuk cek data
 
         return view('siswa.index', compact('siswas')); //menampilkan view siswa/index.blade.php
@@ -17,7 +19,9 @@ class SiswaController extends Controller
 
     public function create()
     {
-        return view('siswa.create');
+        $rayons = Rayon::all();
+
+        return view('siswa.create', compact('rayons')); //
     }
 
     public function store(Request $request)

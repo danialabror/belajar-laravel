@@ -15,21 +15,23 @@
             <td>alamat</td>
             <td>no</td>
             <td>rayon</td>
+            <td>pembimbing</td>
             <td>rombel</td>
             <td colspan="2">Aksi</td>
         </tr>
         @foreach ($siswas as $a)
         <form action="{{url('/siswa/delete/'. $a->id)}}" method="post">
-            @csrf
-            @method('DELETE')
+        @csrf
+        @method('DELETE')
             <tr>
-                    <td>{{$a->nama}}</td>
-                    <td>{{$a->alamat}}</td>
-                    <td>{{$a->no_hp}}</td>
-                    <td>{{$a->id_rayon}}</td>
-                    <td>{{$a->rombel}}</td>
-                    <td><a href="{{url('/siswa/edit/'.$a->id)}}">Edit</a></td>
-                    <td><button type="submit">hapus</button></td>
+                <td>{{$a->nama}}</td>
+                <td>{{$a->alamat}}</td>
+                <td>{{$a->no_hp}}</td>
+                <td>{{$a->nama_rayon}}</td>
+                <td>{{$a->pembimbing}}</td>
+                <td>{{$a->rombel}}</td>
+                <td><a href="{{url('/siswa/edit/'.$a->id)}}">Edit</a></td>
+                <td><button type="submit">hapus</button></td>
             </tr>
         </form>
         @endforeach
